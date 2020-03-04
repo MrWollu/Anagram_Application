@@ -42,6 +42,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showWaitDialog() {
-        waitDialog = AlertDialog.Builder(this).setMessage("Wait").create()
+        waitDialog = AlertDialog.Builder(this).setMessage("WAIT").create()
+    }
+
+    private fun hideWaitDialog() {
+        waitDialog!!.dismiss()
+    }
+
+    private fun displayResult(words: List<String>) {
+        if (words.isEmpty()) {
+            result!!.text = "NO MATCHES"
+        } else {
+            val sb = StringBuilder()
+            for (word in words) {
+                sb.append(word).append("\n")
+            }
+            result!!.text = sb
+        }
     }
 }
